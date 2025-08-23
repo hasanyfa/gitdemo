@@ -18,7 +18,7 @@ El desarrollo de una aplicación móvil en Android como proyecto final permite:
 
 -  Aplicar los conocimientos adquiridos en programación, análisis y diseño de software.
 -  Comprender el ciclo de vida completo de un proyecto de desarrollo.
--  Dominar las herramientas más utilizadas en la industria (Android Studio, Kotlin/Java, Firebase, Git).
+-  Dominar las herramientas más utilizadas en la industria (Android Studio, Java, Firebase, Git).
 -  Generar un producto que pueda tener un impacto real y escalable.
 
 Este proyecto no solo fortalece las competencias técnicas, sino que también fomenta la capacidad de resolver problemas reales mediante la tecnología.
