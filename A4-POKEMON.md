@@ -143,7 +143,7 @@ public interface PokemonAPIService {
 
 ## Paso 4 – Integrar Todo en la Vista Principal
 
-En la función `onCreate` de `ItemListActivity` añade:
+En la función `onCreate` de `MainActivity` añade:
 
 ```java
 Retrofit retrofit = new Retrofit.Builder()
@@ -156,87 +156,9 @@ PokemonAPIService pokemonApiService = retrofit.create(PokemonAPIService.class);
 Call<PokemonFetchResults> call = pokemonApiService.getPokemons();
 ```
 
-### Obtener los Datos
+## Paso 5 – Cambiar el menú
 
-```java
-call.enqueue(new Callback<PokemonFetchResults>() {
-    @Override
-    public void onResponse(Call<PokemonFetchResults> call, Response<PokemonFetchResults> response) {
-        if (response.isSuccessful()) {
-            ArrayList<Pokemon> pokemonList = response.body().getResults();
-            View recyclerView = findViewById(R.id.item_list);
-            assert recyclerView != null;
-            setupRecyclerView((RecyclerView) recyclerView, pokemonList);
-        } else {
-            Log.d("Error", "Something happened");
-        }
-    }
-
-    @Override
-    public void onFailure(Call<PokemonFetchResults> call, Throwable t) {
-        Log.d("Error", t.toString());
-    }
-});
-```
-
-});
-
-````
-
-### Cambios en el Adapter
-
-En `onBindViewHolder`:
-
-```java
-@Override
-public void onBindViewHolder(final ViewHolder holder, int position) {
-    holder.mIdView.setText(Integer.toString(position));
-    holder.mContentView.setText(mValues.get(position).getName());
-    holder.itemView.setTag(position);
-    holder.itemView.setOnClickListener(mOnClickListener);
-}
-````
-
-En el `OnClickListener`:
-
-```java
-private final View.OnClickListener mOnClickListener = new View.OnClickListener() {
-    @Override
-    public void onClick(View view) {
-        int index = (int) view.getTag();
-        Pokemon item = mValues.get(index);
-
-        Context context = view.getContext();
-        Intent intent = new Intent(context, ItemDetailActivity.class);
-        intent.putExtra(ItemDetailFragment.ARG_ITEM_ID, index + 1);
-        intent.putExtra(ItemDetailFragment.ARG_ITEM_NAME, item.getName());
-        intent.putExtra(ItemDetailFragment.ARG_DESCRIPTION, item.getDescription());
-
-        context.startActivity(intent);
-    }
-};
-```
-
-> **💡 Tip**: Los Pokémon están numerados desde el 1 y las URLs de la API respetan ese orden.
-
----
-
-## Paso 5 – Diseñar la UI
-
-Hasta ahora no habíamos tocado la UI porque casi todo lo que necesitamos ya está listo; pero es necesario hacer un cambio en el layout para poder mostrar la foto del Pokémon que el usuario seleccione.
-
-Para ello agregaremos otra dependencia a build.gradle llamada Glide, que nos permite reemplazar “en caliente” una imagen mostrada en un componente ImageView.
-
-```
-dependencies {
-implementation 'com.github.bumptech.glide:glide:4.11.0'
-
-}
-```
-
-Ahora, en activity_item_detail, añadimos el ImageView, lo llamamos item_image y lo agregamos como nodo hijo de toolbar_layout.
-
-```
-activity_item_detail.xml
-
-```
+El título de la Pantalla de Home tiene que ser Pokedex
+El título de cada pantalla debe de tener el nombre del pokemon
+Cada menú debe de tener el nombre del pokemon
+Cada pantalla debe de mostrar el texto del pokemon
