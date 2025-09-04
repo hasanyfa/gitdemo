@@ -2,9 +2,10 @@
 
 > Este proyecto es una adaptación de https://coderslink.com/talento/blog/como-consumir-una-api-desde-una-aplicacion-android/
 
-## 1. Crear un Proyecto
+## Paso 1 - Crear un Proyecto
 
 Sigue los pasos 1 al 4 del archivo `GIT_BASICO.md` para crear y configurar tu proyecto Android.
+Y agrega el menú de dos items.
 
 ## Paso 2 – Configuración inicial
 
