@@ -2,6 +2,8 @@
 
 > Este proyecto es una adaptación de https://coderslink.com/talento/blog/como-consumir-una-api-desde-una-aplicacion-android/
 
+Estamos ocupando la POKEAPI https://pokeapi.co/
+
 ## Paso 1 - Crear un Proyecto
 
 Sigue los pasos 1 al 4 del archivo `GIT_BASICO.md` para crear y configurar tu proyecto Android.
@@ -55,7 +57,12 @@ public class PokemonFetchResults {
 
 También hay que conceder permiso a la app para que se pueda conectar a Internet. Agrega la siguiente línea a tu AndroidManifest.xml:
 
-uses-permission android:name="android.permission.INTERNET" />
+```xml
+<uses-permission android:name="android.permission.INTERNET"
+        tools:ignore="ManifestOrder" />
+```
+
+> **💡 Tip**: El archivo AndroidManifest.xml lo encuentran en la carpeta app/manifests y debe de pegarse después de la etiqueta </application> y antes de la etiqueta </manifest>
 
 ---
 
