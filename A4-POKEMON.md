@@ -82,6 +82,8 @@ curl --location 'https://pokeapi.co/api/v2/pokemon?limit=2'
 curl --location 'https://pokeapi.co/api/v2/pokemon/1'
 ```
 
+> **💡 Tip**: Tú puedes validar las llamdas en Postman
+
 ### Modelos de Datos
 
 Agregar los archivos:
