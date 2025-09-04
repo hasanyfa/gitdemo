@@ -88,20 +88,6 @@ curl --location 'https://pokeapi.co/api/v2/pokemon/1'
 
 Agregar los archivos:
 
-**PokemonFetchResults.java**
-
-```java
-public class PokemonFetchResults {
-    @SerializedName("results")
-    @Expose
-    private ArrayList<Pokemon> results;
-
-    public ArrayList<Pokemon> getResults() {
-        return results;
-    }
-}
-```
-
 **Pokemon.java**
 
 ```java
@@ -117,6 +103,20 @@ public class Pokemon {
     public String getName() { return name; }
     public void setName(String name) { this.name = name; }
     public String getDescription() { return "It's " + getName() + "!"; }
+}
+```
+
+**PokemonFetchResults.java**
+
+```java
+public class PokemonFetchResults {
+    @SerializedName("results")
+    @Expose
+    private ArrayList<Pokemon> results;
+
+    public ArrayList<Pokemon> getResults() {
+        return results;
+    }
 }
 ```
 
