@@ -11,11 +11,14 @@ Y agrega el menú de dos items.
 
 Abre el archivo build.gradle de tu aplicación y añade las siguientes dependencias:
 
+```json
 dependencies {
 implementation 'com.squareup.retrofit2:retrofit:2.9.0'
 implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
 implementation 'com.google.code.gson:gson:2.8.6'
 }
+```
+
 Retrofit es un cliente REST extremadamente simple de configurar. Nos permitirá tratar las llamadas a la API como funciones Java, así definiremos solamente las URLs que queremos llamar y los tipos de petición y respuesta que esperamos.
 
 Gson es una librería de Google muy popular para serializar y de-serializar data entre objetos JSON y objetos Java. Así, sin mucho boilerplate, podremos tratar a los datos JSON como clases de Java, pasando de esto:
