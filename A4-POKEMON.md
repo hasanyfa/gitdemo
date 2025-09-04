@@ -70,6 +70,8 @@ También hay que conceder permiso a la app para que se pueda conectar a Internet
 
 ### Interfaz para la API
 
+Crea un paquete llamado resources.
+
 Crea una nueva interfaz llamada `PokemonAPIService`:
 
 ```java
@@ -86,7 +88,16 @@ public interface PokemonAPIService {
 **Llamadas necesarias:**
 
 -  `GET https://pokeapi.co/api/v2/pokemon?limit=50` → obtener los primeros 50 Pokémon
+
+```bash
+curl --location 'https://pokeapi.co/api/v2/pokemon?limit=2'
+```
+
 -  `GET https://pokeapi.co/api/v2/pokemon/{id}` → obtener detalles de cada uno
+
+```bash
+curl --location 'https://pokeapi.co/api/v2/pokemon/1'
+```
 
 ### Modelos de Datos
 
