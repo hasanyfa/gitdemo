@@ -68,23 +68,6 @@ También hay que conceder permiso a la app para que se pueda conectar a Internet
 
 ## Paso 3 – Definir Endpoints y Modelos
 
-### Interfaz para la API
-
-Crea un paquete llamado resources.
-
-Crea una nueva interfaz llamada `PokemonAPIService`:
-
-```java
-import com.example.pokedex.resources.PokemonFetchResults;
-import retrofit2.Call;
-import retrofit2.http.GET;
-
-public interface PokemonAPIService {
-    @GET("pokemon/?limit=50")
-    Call<PokemonFetchResults> getPokemons();
-}
-```
-
 **Llamadas necesarias:**
 
 -  `GET https://pokeapi.co/api/v2/pokemon?limit=50` → obtener los primeros 50 Pokémon
@@ -101,7 +84,7 @@ curl --location 'https://pokeapi.co/api/v2/pokemon/1'
 
 ### Modelos de Datos
 
-### Modelos de Datos
+Agregar los archivos:
 
 **PokemonFetchResults.java**
 
@@ -137,9 +120,24 @@ public class Pokemon {
 
 > **Nota**: No es necesario definir todos los campos que retorna la API, solo los que necesites.
 
----
+### Interfaz para la API
 
-## Paso 4 – Integrar Todo en la Vista Principal
+Crea un paquete llamado resources.
+
+Crea una nueva interfaz llamada `PokemonAPIService`:
+
+```java
+import com.example.pokedex.resources.PokemonFetchResults;
+import retrofit2.Call;
+import retrofit2.http.GET;
+
+public interface PokemonAPIService {
+    @GET("pokemon/?limit=50")
+    Call<PokemonFetchResults> getPokemons();
+}
+```
+
+---
 
 ## Paso 4 – Integrar Todo en la Vista Principal
 
