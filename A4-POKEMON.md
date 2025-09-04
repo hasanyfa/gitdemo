@@ -19,30 +19,40 @@ dependencies {
 }
 ```
 
+> **💡 Tip**: Podrías tener ya la primera línea y la última por lo que sólo tendrás que agregar las 3 líneas de implementation al json
+
+Después de copiar las dependencias, hacer click en el botón "Synk now" para instalar las dependencias.
+
 Retrofit es un cliente REST extremadamente simple de configurar. Nos permitirá tratar las llamadas a la API como funciones Java, así definiremos solamente las URLs que queremos llamar y los tipos de petición y respuesta que esperamos.
 
 Gson es una librería de Google muy popular para serializar y de-serializar data entre objetos JSON y objetos Java. Así, sin mucho boilerplate, podremos tratar a los datos JSON como clases de Java, pasando de esto:
 
+```json
 {
-"count": 1118,
-"results": [
-{
-"name": "bulbasaur",
-"url": "https://pokeapi.co/api/v2/pokemon/1/"
+   "count": 1118,
+   "results": [
+      {
+         "name": "bulbasaur",
+         "url": "https://pokeapi.co/api/v2/pokemon/1/"
+      }
+   ]
 }
-]
-}
+```
+
 A esto:
 
+```java
 public class PokemonFetchResults {
-@SerializedName("count")
-@Expose
-private int count;
+    @SerializedName("count")
+    @Expose
+    private int count;
 
-@SerializedName("results")
-@Expose
-private ArrayList results;
+    @SerializedName("results")
+    @Expose
+    private ArrayList results;
 }
+```
+
 También hay que conceder permiso a la app para que se pueda conectar a Internet. Agrega la siguiente línea a tu AndroidManifest.xml:
 
 uses-permission android:name="android.permission.INTERNET" />
