@@ -35,15 +35,11 @@ Abre la terminal en Android Studio: **View → Tool Windows → Terminal**
 # Inicializar repositorio Git local
 git init
 
-# Configurar tu identidad (reemplaza con tus datos)
-git config --global user.name "Tu Nombre"
-git config --global user.email "tu.email@gmail.com"
-
 # Agregar todos los archivos al staging area
 git add .
 
 # Crear el primer commit
-git commit -m "Primer commit - Proyecto inicial"
+git commit -m "Primer commit - Actividad #"
 
 # Cambiar la rama principal a 'main'
 git branch -M main
@@ -84,6 +80,37 @@ git status          # Ver archivos modificados
 git log --oneline   # Ver historial de commits
 git remote -v       # Ver repositorios remotos configurados
 ```
+
+## 🌿 Crear y Usar Ramas en Git
+
+Las ramas te permiten trabajar en nuevas características o correcciones sin afectar la rama principal (`main`).
+
+### Crear una nueva rama
+
+```bash
+# Crear una nueva rama (ejemplo: "feature/login")
+git branch nombre_de_rama
+
+# O crear y cambiarte a la nueva rama directamente
+git checkout -b nombre_de_rama
+```
+
+### Cambiar de rama
+
+```bash
+git checkout nombre_de_rama
+```
+
+### Subir una rama al repositorio remoto
+
+```bash
+git push -u origin nombre_de_rama
+```
+
+### Consejos:
+
+-  Usa nombres descriptivos para tus ramas (ej: `feature/login`, `bugfix/error-login`)
+-  Trabaja en ramas para mantener tu código organizado y evitar conflictos en `main`
 
 ### Si cometes errores:
 
