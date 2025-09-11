@@ -239,28 +239,56 @@ dependencies {
 
 ## 🔌 Paso 5. Modelo de datos mínimo para PokeAPI
 
+Modelo de datos completo
+
+-  Clase principal con id, name, weight, sprites, types, abilities
+-  Clases anidadas para manejar la estructura JSON de PokeAPI
+-  Soporte para sprites normales, shiny, y official artwork
+
 **`PokemonResponse.java`**
 
 ```java
-// Código completo mostrado antes
+// busca el código de la clase anterior
 ```
 
 ---
 
 ## 🔧 Paso 6. Interfaz de API y cliente Retrofit
 
+Interfaz de API:
+
+-  Interfaz Retrofit para consumir PokeAPI
+-  Cliente Retrofit configurado con la URL base
+-  Método para obtener Pokémon por nombre o ID
+
 **`PokeApi.java`** y **`ApiClient.java`**
 
 ```java
-// Código completo mostrado antes
+// PokeApi.java
+
+// ApiClient.java
 ```
 
 ---
 
 ## 🧠 Paso 7. Lógica en `MainActivity.java`
 
+Lógica principal completa:
+
+-  Inicialización de todas las vistas y API
+-  Búsqueda de Pokémon por nombre o ID
+-  Búsqueda aleatoria con el ImageButton
+-  Manejo de estados de UI según controles:
+-  CheckBox para versión Shiny
+-  ToggleButton para Sprite/Artwork
+-  RadioButtons para Frente/Espalda
+-  Switch para mostrar/ocultar detalles
+-  Carga de imágenes con Glide según opciones seleccionadas
+-  Función limpiar para resetear toda la UI
+-  Manejo de errores para conexión y Pokémon no encontrado
+
 ```java
-// Código completo mostrado antes
+
 ```
 
 ---
