@@ -88,140 +88,151 @@ dependencies {
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:fillViewport="true"
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <LinearLayout
-        android:orientation="vertical"
-        android:padding="16dp"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+    <ScrollView
+        android:fillViewport="true"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
-        <!-- Título -->
-        <TextView
-            android:id="@+id/tvTitle"
-            android:text="Mini PokeDex UI"
-            android:textStyle="bold"
-            android:textSize="22sp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <!-- EditText con Hint -->
-        <EditText
-            android:id="@+id/etQuery"
-            android:hint="Nombre o ID (e.g. pikachu o 25)"
-            android:inputType="text"
-            android:layout_marginTop="12dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <!-- Acciones principales -->
         <LinearLayout
-            android:orientation="horizontal"
-            android:layout_marginTop="8dp"
+            android:orientation="vertical"
+            android:padding="16dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
+            <!-- Título -->
+            <TextView
+                android:id="@+id/tvTitle"
+                android:text="Mini PokeDex UI"
+                android:textStyle="bold"
+                android:textSize="22sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <!-- EditText con Hint -->
+            <EditText
+                android:id="@+id/etQuery"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="12dp"
+                android:hint="Nombre o ID (e.g. pikachu o 25)"
+                android:inputType="text" />
+
+            <!-- Acciones principales -->
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/btnSearch"
+                    android:text="Buscar"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <ImageButton
+                    android:id="@+id/btnRandom"
+                    android:src="@android:drawable/ic_menu_rotate"
+                    android:contentDescription="Aleatorio"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:layout_marginStart="12dp"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp" />
+            </LinearLayout>
+
+            <!-- Opciones de imagen -->
+            <CheckBox
+                android:id="@+id/cbShiny"
+                android:text="Shiny"
+                android:layout_marginTop="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <ToggleButton
+                android:id="@+id/tgSpriteArtwork"
+                android:textOn="Artwork"
+                android:textOff="Sprite"
+                android:layout_marginTop="4dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <RadioGroup
+                android:id="@+id/rgSide"
+                android:orientation="horizontal"
+                android:layout_marginTop="4dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <RadioButton
+                    android:id="@+id/rbFront"
+                    android:checked="true"
+                    android:text="Frente"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <RadioButton
+                    android:id="@+id/rbBack"
+                    android:text="Espalda"
+                    android:layout_marginStart="12dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </RadioGroup>
+
+            <Switch
+                android:id="@+id/swDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_marginTop="4dp"
+                android:text="Mostrar detalles" />
+
+            <!-- Imagen del Pokémon -->
+            <ImageView
+                android:id="@+id/ivPokemon"
+                android:contentDescription="Imagen del Pokémon"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:layout_marginTop="12dp"
+                android:layout_width="match_parent"
+                android:layout_height="200dp" />
+
+            <!-- Info básica -->
+            <TextView
+                android:id="@+id/tvBasic"
+                android:text="Nombre / ID"
+                android:textStyle="bold"
+                android:layout_marginTop="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <!-- Detalles (ocultos con el Switch) -->
+            <TextView
+                android:id="@+id/tvDetails"
+                android:text="Detalles (tipo, peso, habilidades...)"
+                android:visibility="gone"
+                android:layout_marginTop="4dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <!-- Limpiar -->
             <Button
-                android:id="@+id/btnSearch"
-                android:text="Buscar"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
+                android:id="@+id/btnClear"
+                android:text="Limpiar"
+                android:layout_marginTop="12dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
-            <ImageButton
-                android:id="@+id/btnRandom"
-                android:src="@android:drawable/ic_menu_rotate"
-                android:contentDescription="Aleatorio"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:layout_marginStart="12dp"
-                android:layout_width="48dp"
-                android:layout_height="48dp" />
         </LinearLayout>
+    </ScrollView>
 
-        <!-- Opciones de imagen -->
-        <CheckBox
-            android:id="@+id/cbShiny"
-            android:text="Shiny"
-            android:layout_marginTop="8dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
 
-        <ToggleButton
-            android:id="@+id/tgSpriteArtwork"
-            android:textOn="Artwork"
-            android:textOff="Sprite"
-            android:layout_marginTop="4dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <RadioGroup
-            android:id="@+id/rgSide"
-            android:orientation="horizontal"
-            android:layout_marginTop="4dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-            <RadioButton
-                android:id="@+id/rbFront"
-                android:checked="true"
-                android:text="Frente"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-            <RadioButton
-                android:id="@+id/rbBack"
-                android:text="Espalda"
-                android:layout_marginStart="12dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-        </RadioGroup>
-
-        <Switch
-            android:id="@+id/swDetails"
-            android:text="Mostrar detalles"
-            android:layout_marginTop="4dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <!-- Imagen del Pokémon -->
-        <ImageView
-            android:id="@+id/ivPokemon"
-            android:contentDescription="Imagen del Pokémon"
-            android:adjustViewBounds="true"
-            android:scaleType="fitCenter"
-            android:layout_marginTop="12dp"
-            android:layout_width="match_parent"
-            android:layout_height="200dp" />
-
-        <!-- Info básica -->
-        <TextView
-            android:id="@+id/tvBasic"
-            android:text="Nombre / ID"
-            android:textStyle="bold"
-            android:layout_marginTop="8dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <!-- Detalles (ocultos con el Switch) -->
-        <TextView
-            android:id="@+id/tvDetails"
-            android:text="Detalles (tipo, peso, habilidades...)"
-            android:visibility="gone"
-            android:layout_marginTop="4dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <!-- Limpiar -->
-        <Button
-            android:id="@+id/btnClear"
-            android:text="Limpiar"
-            android:layout_marginTop="12dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-    </LinearLayout>
-</ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
 ```
 
 ---
