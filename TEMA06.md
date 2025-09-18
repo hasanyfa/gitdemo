@@ -249,6 +249,10 @@ public class MainActivity extends AppCompatActivity {
         ibClear = findViewById(R.id.ibClear);
         lvItems = findViewById(R.id.lvItems);
 
+        ArrayAdapter<CharSequence> spinnerAdapter = ArrayAdapter.createFromResource(
+                this, R.array.categorias, android.R.layout.simple_spinner_item);
+        spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerCategory.setAdapter(spinnerAdapter);
 
     }
 }
