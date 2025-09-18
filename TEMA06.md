@@ -222,6 +222,37 @@ Esta vez tienes que seleccionar **"Empty Activity"** y también debes eliminar e
 
 ```java
 // Código completo incluido en el ejercicio
+public class MainActivity extends AppCompatActivity {
+    private Spinner spinnerCategory;
+    private TextView tvDate, tvTime;
+    private EditText etDescription;
+    private ImageButton ibPickDate, ibPickTime, ibAdd, ibClear;
+    private ListView lvItems;
+
+    private final ArrayList<String> items = new ArrayList<>();
+    private ArrayAdapter<String> listAdapter;
+    private Calendar selected; // fecha/hora seleccionadas
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
+        setContentView(R.layout.activity_main);
+        spinnerCategory = findViewById(R.id.spinnerCategory);
+        tvDate = findViewById(R.id.tvDate);
+        tvTime = findViewById(R.id.tvTime);
+        etDescription = findViewById(R.id.etDescription);
+        ibPickDate = findViewById(R.id.ibPickDate);
+        ibPickTime = findViewById(R.id.ibPickTime);
+        ibAdd = findViewById(R.id.ibAdd);
+        ibClear = findViewById(R.id.ibClear);
+        lvItems = findViewById(R.id.lvItems);
+
+
+    }
+}
+
 ```
 
 ---
