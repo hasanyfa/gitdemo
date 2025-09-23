@@ -152,16 +152,45 @@ public class MainActivity extends AppCompatActivity {
 
 ```java
 // ActivityA.java
-getWindow().setExitTransition(new Explode());
-Intent intent = new Intent(this, ActivityB.class);
-startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(this).toBundle());
+import android.app.ActivityOptions;
+import android.content.Intent;
+import android.os.Bundle;
+import android.transition.Explode;
+import androidx.appcompat.app.AppCompatActivity;
 
+public class ActivityA extends AppCompatActivity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_a);
+
+        // Define la transición de salida de A
+        getWindow().setExitTransition(new Explode());
+
+        findViewById(R.id.btnOpenB).setOnClickListener(v -> {
+            Intent intent = new Intent(this, ActivityB.class);
+            startActivity(intent, ActivityOptions
+                    .makeSceneTransitionAnimation(this)
+                    .toBundle());
+        });
+    }
+}
+```
+
+```java
 // ActivityB.java
-@Override
-protected void onCreate(Bundle savedInstanceState) {
-    getWindow().setEnterTransition(new Explode());
-    super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_b);
+import android.os.Bundle;
+import android.transition.Explode;
+import androidx.appcompat.app.AppCompatActivity;
+
+public class ActivityB extends AppCompatActivity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        // Define la transición de entrada de B
+        getWindow().setEnterTransition(new Explode());
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_b);
+    }
 }
 ```
 
