@@ -199,7 +199,8 @@
            android:textSize="24sp"
            android:textStyle="bold" />
 
-       <RecyclerView
+
+       <androidx.recyclerview.widget.RecyclerView
            android:id="@+id/recyclerProducts"
            android:layout_width="match_parent"
            android:layout_height="match_parent"
