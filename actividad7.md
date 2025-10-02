@@ -15,11 +15,13 @@
 
 -  [ ] **Paso 1.3:** Inicializar proyecto Android
    ```
-   📱 Abrir Android Studio
+   📱 Abrir Android Studio 2025.1.1
    📁 New Project > Empty Views Activity
    📝 Name: Actividad7
    🎯 Language: Java
-   📱 Minimum SDK: API 21+
+   📱 Minimum SDK: API 28 (Android 9.0)
+   🎯 Target SDK: API 36 (Android 14)
+   📦 Build configuration language: Groovy DSL (build.gradle)
    ```
 
 ### ✅ Fase 2: Configuración del proyecto
@@ -219,41 +221,259 @@
        private String imageUrl;
        private String webUrl;
 
-       // Constructor, getters y setters
+       public Product(String name, String description, String imageUrl, String webUrl) {
+           this.name = name;
+           this.description = description;
+           this.imageUrl = imageUrl;
+           this.webUrl = webUrl;
+       }
+
+       // Getters
+       public String getName() { return name; }
+       public String getDescription() { return description; }
+       public String getImageUrl() { return imageUrl; }
+       public String getWebUrl() { return webUrl; }
+
+       // Setters
+       public void setName(String name) { this.name = name; }
+       public void setDescription(String description) { this.description = description; }
+       public void setImageUrl(String imageUrl) { this.imageUrl = imageUrl; }
+       public void setWebUrl(String webUrl) { this.webUrl = webUrl; }
    }
    ```
 
--  [ ] **Paso 6.3:** Implementar RecyclerView Adapter
+-  [ ] **Paso 6.3:** Crear layout para item de producto
+
+   ```xml
+   <!-- item_product.xml -->
+   <?xml version="1.0" encoding="utf-8"?>
+   <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+       xmlns:app="http://schemas.android.com/apk/res-auto"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_margin="8dp"
+       app:cardCornerRadius="12dp"
+       app:cardElevation="4dp">
+
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="horizontal"
+           android:padding="16dp">
+
+           <ImageView
+               android:id="@+id/ivProductImage"
+               android:layout_width="80dp"
+               android:layout_height="80dp"
+               android:scaleType="centerCrop"
+               android:src="@drawable/ic_launcher_foreground" />
+
+           <LinearLayout
+               android:layout_width="0dp"
+               android:layout_height="wrap_content"
+               android:layout_weight="1"
+               android:layout_marginStart="16dp"
+               android:orientation="vertical">
+
+               <TextView
+                   android:id="@+id/tvProductName"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="Nombre del Producto"
+                   android:textSize="18sp"
+                   android:textStyle="bold"
+                   android:textColor="@color/text_primary" />
+
+               <TextView
+                   android:id="@+id/tvProductDescription"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_marginTop="4dp"
+                   android:text="Descripción del producto"
+                   android:textColor="@color/text_secondary" />
+
+               <Button
+                   android:id="@+id/btnViewProduct"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_marginTop="8dp"
+                   android:text="🌐 Ver en Web"
+                   android:backgroundTint="@color/primary_color" />
+
+           </LinearLayout>
+
+       </LinearLayout>
+
+   </androidx.cardview.widget.CardView>
+   ```
+
+-  [ ] **Paso 6.4:** Implementar ProductAdapter completo
 
    ```java
    // ProductAdapter.java
-   public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHolder> {
-       // Implementar adapter para mostrar productos
+   import android.content.Context;
+   import android.content.Intent;
+   import android.net.Uri;
+   import android.view.LayoutInflater;
+   import android.view.View;
+   import android.view.ViewGroup;
+   import android.widget.Button;
+   import android.widget.ImageView;
+   import android.widget.TextView;
+   import androidx.annotation.NonNull;
+   import androidx.recyclerview.widget.RecyclerView;
+   import java.util.List;
+
+   public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductViewHolder> {
+
+       private List<Product> products;
+       private Context context;
+
+       public ProductAdapter(Context context, List<Product> products) {
+           this.context = context;
+           this.products = products;
+       }
+
+       @NonNull
+       @Override
+       public ProductViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+           View view = LayoutInflater.from(context).inflate(R.layout.item_product, parent, false);
+           return new ProductViewHolder(view);
+       }
+
+       @Override
+       public void onBindViewHolder(@NonNull ProductViewHolder holder, int position) {
+           Product product = products.get(position);
+
+           holder.tvProductName.setText(product.getName());
+           holder.tvProductDescription.setText(product.getDescription());
+
+           // Configurar click del botón para abrir navegador
+           holder.btnViewProduct.setOnClickListener(v -> {
+               Intent intent = new Intent(Intent.ACTION_VIEW);
+               intent.setData(Uri.parse(product.getWebUrl()));
+               context.startActivity(intent);
+           });
+
+           // Opcional: Cargar imagen si tienes una URL real
+           // Glide.with(context).load(product.getImageUrl()).into(holder.ivProductImage);
+       }
+
+       @Override
+       public int getItemCount() {
+           return products.size();
+       }
+
+       public static class ProductViewHolder extends RecyclerView.ViewHolder {
+           TextView tvProductName, tvProductDescription;
+           ImageView ivProductImage;
+           Button btnViewProduct;
+
+           public ProductViewHolder(@NonNull View itemView) {
+               super(itemView);
+               tvProductName = itemView.findViewById(R.id.tvProductName);
+               tvProductDescription = itemView.findViewById(R.id.tvProductDescription);
+               ivProductImage = itemView.findViewById(R.id.ivProductImage);
+               btnViewProduct = itemView.findViewById(R.id.btnViewProduct);
+           }
+       }
    }
    ```
 
--  [ ] **Paso 6.4:** Configurar datos de productos
+-  [ ] **Paso 6.5:** Configurar MainActivity completa
 
    ```java
-   // En MainActivity.java
-   private void setupProducts() {
-       List<Product> products = Arrays.asList(
-           new Product("🎧 Auriculares Premium", "Sonido de alta calidad", "url_imagen", "https://example.com/headphones"),
-           new Product("📱 Smartphone", "Última tecnología", "url_imagen", "https://example.com/phone"),
-           new Product("💻 Laptop Gaming", "Para gamers profesionales", "url_imagen", "https://example.com/laptop"),
-           new Product("⌚ Smartwatch", "Fitness y salud", "url_imagen", "https://example.com/watch"),
-           new Product("📷 Cámara Digital", "Fotografía profesional", "url_imagen", "https://example.com/camera")
-       );
+   // MainActivity.java
+   import android.os.Bundle;
+   import androidx.appcompat.app.AppCompatActivity;
+   import androidx.recyclerview.widget.LinearLayoutManager;
+   import androidx.recyclerview.widget.RecyclerView;
+   import java.util.ArrayList;
+   import java.util.List;
+
+   public class MainActivity extends AppCompatActivity {
+
+       private RecyclerView recyclerProducts;
+       private ProductAdapter productAdapter;
+       private List<Product> productList;
+
+       @Override
+       protected void onCreate(Bundle savedInstanceState) {
+           super.onCreate(savedInstanceState);
+           setContentView(R.layout.activity_main);
+
+           initViews();
+           setupProducts();
+           setupRecyclerView();
+       }
+
+       private void initViews() {
+           recyclerProducts = findViewById(R.id.recyclerProducts);
+       }
+
+       private void setupProducts() {
+           productList = new ArrayList<>();
+           productList.add(new Product(
+               "🎧 Auriculares Premium",
+               "Sonido de alta calidad con cancelación de ruido",
+               "",
+               "https://www.amazon.com/headphones"
+           ));
+           productList.add(new Product(
+               "📱 Smartphone",
+               "Última tecnología en telefonía móvil",
+               "",
+               "https://www.samsung.com/smartphones"
+           ));
+           productList.add(new Product(
+               "💻 Laptop Gaming",
+               "Para gamers profesionales y entusiastas",
+               "",
+               "https://www.asus.com/laptops"
+           ));
+           productList.add(new Product(
+               "⌚ Smartwatch",
+               "Fitness, salud y conectividad en tu muñeca",
+               "",
+               "https://www.apple.com/watch"
+           ));
+           productList.add(new Product(
+               "📷 Cámara Digital",
+               "Fotografía profesional para capturar momentos",
+               "",
+               "https://www.canon.com/cameras"
+           ));
+       }
+
+       private void setupRecyclerView() {
+           productAdapter = new ProductAdapter(this, productList);
+           recyclerProducts.setLayoutManager(new LinearLayoutManager(this));
+           recyclerProducts.setAdapter(productAdapter);
+       }
    }
    ```
 
--  [ ] **Paso 6.5:** Implementar Intent para abrir navegador
-   ```java
-   private void openWebUrl(String url) {
-       Intent intent = new Intent(Intent.ACTION_VIEW);
-       intent.setData(Uri.parse(url));
-       startActivity(intent);
+-  [ ] **Paso 6.6:** Agregar dependencias en build.gradle (Module: app)
+
+   ```gradle
+   dependencies {
+       implementation 'androidx.appcompat:appcompat:1.7.0'
+       implementation 'androidx.recyclerview:recyclerview:1.3.2'
+       implementation 'androidx.cardview:cardview:1.0.0'
+       implementation 'com.google.android.material:material:1.12.0'
+       implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+
+       // Para cargar imágenes (opcional)
+       implementation 'com.github.bumptech.glide:glide:4.16.0'
+       annotationProcessor 'com.github.bumptech.glide:compiler:4.16.0'
    }
+   ```
+
+-  [ ] **Paso 6.7:** Configurar permisos en AndroidManifest.xml
+
+   ```xml
+   <!-- AndroidManifest.xml -->
+   <uses-permission android:name="android.permission.INTERNET" />
    ```
 
 ### ✅ Fase 7: Testing y capturas
