@@ -8,7 +8,7 @@ Desarrollar una aplicación Android que integre servicios del dispositivo, Broad
 
 ### 1. 📁 Creación del repositorio
 
--  Crea un nuevo repositorio en GitHub con el nombre `Actividad8`
+-  Crea un nuevo repositorio en GitHub con el nombre `Actividad08`
 -  Inicializa el repositorio con un archivo README.md básico
 -  Clona el repositorio a tu máquina local
 
@@ -128,8 +128,8 @@ Crea un archivo `README.md` profesional con la siguiente estructura:
 
 ## 🛠️ Tecnologías utilizadas
 
--  Android SDK
--  Java/Kotlin
+-  Android SDK API 28
+-  Java
 -  Broadcast Receivers
 -  Notification Manager
 
@@ -221,7 +221,7 @@ Responde de manera detallada y fundamentada las siguientes preguntas:
 
 ### 10. 🛡️ Mejores prácticas
 
--  Manejo adecuado de permisos en tiempo de ejecución (API 27+)
+-  Manejo adecuado de permisos en tiempo de ejecución (API 28+)
 -  Validación de datos de entrada
 -  Gestión eficiente de memoria
 -  Pruebas de funcionalidad en diferentes versiones de Android
