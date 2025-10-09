@@ -20,7 +20,7 @@ Desarrollar una aplicación Android que integre todos los concocimientos aprendi
 
 -  En GitHub, ve a Settings → Manage access
 -  Agrega al usuario `hasanyfa` como colaborador con permisos de lectura
--  Agrega al usuario que será tu pareja como colaborador con permisos de lectura
+-  Agrega al usuario que será tu pareja como colaborador con permisos de escritura
 -  Asegúrate de que la invitación sea aceptada
 
 ## 🎨 Configuración del proyecto Android
