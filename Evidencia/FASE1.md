@@ -20,7 +20,7 @@ Desarrollar una aplicación Android que integre todos los concocimientos aprendi
 
 -  En GitHub, ve a Settings → Manage access
 -  Agrega al usuario `hasanyfa` como colaborador con permisos de lectura
--  Agrega al usuario que será tu pareja como colaborador con permisos de escritura
+-  Agrega al usuario que será compañero de equipo como colaborador con permisos de escritura
 -  Asegúrate de que la invitación sea aceptada
 
 ## 🎨 Configuración del proyecto Android
@@ -81,13 +81,15 @@ git push origin feature/configuracion-inicial
 -  Crea un nuevo Pull Request desde `feature/configuracion-inicial` hacia `main`
 -  Agrega una descripción detallada de los cambios realizados
 -  Asigna a `hasanyfa` como revisor
+-  Asigna a tu compañero como revisor
 -  Añade etiquetas apropiadas (enhancement, documentation, etc.)
 
 **c) ⏳ Esperar aprobación**
 
--  El revisor evaluará tu código y dejará comentarios si es necesario
+-  Su compañero deberá evaluar tu código y dejará comentarios si es necesario
 -  Realiza las correcciones solicitadas si las hay
 -  Una vez aprobado, podrás hacer merge
+   \*\* La aprobación únicamente será de tu compañero de equipo
 
 ### 6. ✅ Merge y sincronización
 
@@ -116,100 +118,4 @@ git checkout -b desarrollo
 
 ### 7. 📄 README.md completo
 
-Crea un archivo `README.md` profesional con la siguiente estructura:
-
-```markdown
-# 📱 Actividad 8 - App de Notificaciones SMS
-
-## 📋 Descripción
-
-[Descripción breve del proyecto]
-
-## 🎯 Objetivos de aprendizaje
-
--  Integración con servicios del dispositivo
--  Implementación de Broadcast Receivers
--  Manejo eficiente de hilos en Android
-
-## 🛠️ Tecnologías utilizadas
-
--  Android SDK API 28
--  Java
--  Broadcast Receivers
--  Notification Manager
-
-## 📱 Funcionalidades
-
-[Lista de características implementadas]
-```
-
-**❓ Preguntas de reflexión técnica:**
-
-Responde de manera detallada y fundamentada las siguientes preguntas:
-
-1. **🔋 Integración con servicios del dispositivo:**
-   ¿Cómo se pueden desarrollar aplicaciones que se integren con los servicios del dispositivo, como la batería, los mensajes o las notificaciones, de forma eficiente y segura, considerando diferentes tipos de servicios, permisos y la experiencia del usuario?
-
-2. **📡 Broadcast Intents y Receivers:**
-   ¿Cómo se pueden utilizar Broadcast Intents y Broadcast Receivers para comunicar diferentes aplicaciones entre sí de forma segura y eficiente, considerando diferentes tipos de acciones, datos y la experiencia del usuario?
-
-3. **🧵 Manejo de hilos:**
-   ¿Cómo se pueden utilizar hilos en Android para mejorar la eficiencia y la capacidad de respuesta de una aplicación, considerando diferentes tipos de tareas, la sincronización de datos y la experiencia del usuario?
-
-4. **💭 Reflexión personal:**
-   Escribe una reflexión personal sobre los conceptos aprendidos (mínimo 50 palabras). Incluye:
-   -  Desafíos enfrentados durante el desarrollo
-   -  Conceptos que te resultaron más interesantes
-   -  Aplicaciones prácticas en proyectos futuros
-
-## 📱 Desarrollo de la aplicación
-
-### 8. 🛍️ Especificaciones técnicas de la aplicación
-
-**📋 Funcionalidades principales:**
-
-**a) 📞 Vista principal con lista de contactos**
-
--  Implementa un `RecyclerView` o `ListView` para mostrar números de teléfono
--  Permite agregar/eliminar números de la lista
--  Interfaz intuitiva para gestionar contactos monitoreados
-
-**b) 📨 Servicio BroadcastReceiver para SMS**
-
--  Crea un `BroadcastReceiver` que escuche el intent `SMS_RECEIVED`
--  Implementa el manejo seguro de permisos (`RECEIVE_SMS`)
--  Procesa mensajes entrantes de forma eficiente
-
-**c) 🔔 Sistema de notificaciones**
-
--  Genera notificaciones cuando lleguen SMS de números monitoreados
--  Implementa diferentes tipos de notificación:
-   -  Toast messages para feedback inmediato
-   -  Logging detallado para debugging
-   -  Notificaciones del sistema para alertas importantes
-
-**d) 🧵 Manejo de hilos**
-
--  Utiliza hilos apropiados para operaciones no bloqueantes
--  Implementa `AsyncTask` o `ExecutorService` para tareas en segundo plano
--  Asegura que las actualizaciones de UI se realicen en el hilo principal
-
-**🎨 Especificaciones de diseño:**
-
-**a) 🖼️ Interfaz de usuario**
-
--  Diseño moderno siguiendo Material Design Guidelines
--  Navegación intuitiva y accesible
--  Componentes responsivos para diferentes tamaños de pantalla
-
-**b) 🎨 Paleta de colores temática**
-
--  Colores que evoquen comunicación y alerta
--  Contraste adecuado para accesibilidad
--  Consistencia visual en toda la aplicación
-
-**c) 📝 Tipografía y legibilidad**
-
--  Fuente legible en todos los tamaños
--  Jerarquía tipográfica clara
--  Espaciado apropiado entre elementos
+Crea un archivo `README.md` profesional con la descripción de su aplicación.
