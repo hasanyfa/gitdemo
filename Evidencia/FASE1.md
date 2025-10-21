@@ -6,7 +6,18 @@
 
 Desarrollar una aplicación Android que integre todos los concocimientos aprendidos en el primer y segundo parcial, por lo menos debe de tener aplicados del tema 4 al tema 10. Los temas son:
 
--
+-  Tema 4. Fragmentos, flujo maestro-detalle y menú
+-  Tema 5. Elementos de interfaz gráfica
+-  Tema 6. Más sobre interfaz gráfica
+-  Tema 7. Transiciones
+-  Tema 8. Uso de aplicaciones externas
+-  Tema 9. Emisiones, hilos y servicios
+-  Tema 10. Servicios
+-  Tema 11. Bases de datos
+-  Tema 12. Multimedia
+-  Tema 13. Mapeo
+-  Tema 14. Sensor
+-  Tema 15. Publicación en Google Play
 
 ### 🚀 Configuración inicial
 
