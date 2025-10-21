@@ -1,8 +1,8 @@
-# 🚀 Guía paso a paso — Práctica 11: SQLite con Java
+# 🚀 Guía paso a paso — Actividad 9: SQLite con Java
 
 ## 🧩 Objetivo
 
-Construir una aplicación Android llamada **practica11** que utilice **SQLite** para realizar operaciones CRUD (Crear, Leer, Actualizar y Eliminar) sobre una tabla de empleados.  
+Construir una aplicación Android llamada **actividad9** que utilice **SQLite** para realizar operaciones CRUD (Crear, Leer, Actualizar y Eliminar) sobre una tabla de empleados.  
 La práctica tiene como propósito aplicar los conceptos de **SQL** y **SQLite** en el contexto del desarrollo móvil con Android.
 
 ---
@@ -84,7 +84,7 @@ En esta práctica nos enfocaremos principalmente en la entidad **EMPLEADO** para
 
 1. Abre **Android Studio** → **New Project → Empty Views Activity**
 2. Asigna estos valores:
-   -  **Name:** `practica11`
+   -  **Name:** `actividad9`
    -  **Language:** Java
    -  **Minimum SDK:** API 28
 3. Clic en **Finish**.
@@ -97,11 +97,11 @@ Abre el archivo `app/build.gradle` y asegúrate de incluir lo siguiente:
 
 ```gradle
 android {
-    namespace 'com.example.practica11'
+    namespace 'com.example.actividad9'
     compileSdk 28
 
     defaultConfig {
-        applicationId "com.example.practica11"
+        applicationId "com.example.actividad9"
         minSdk 21
         targetSdk 28
         versionCode 1
@@ -128,7 +128,7 @@ Sincroniza con **Sync Now** cuando Android Studio lo indique.
 
 ## 🧱 Paso 3: Crear la estructura de paquetes
 
-Dentro de `java/com.example.practica11/` crea las carpetas:
+Dentro de `java/com.example.actividad9/` crea las carpetas:
 
 ```
 ├── data
