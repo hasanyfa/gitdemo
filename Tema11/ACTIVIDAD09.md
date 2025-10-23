@@ -557,6 +557,16 @@ Diseño para cada tarjeta de empleado.
             android:layout_marginTop="8dp" />
 
     </LinearLayout>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabDelete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|end"
+        android:layout_margin="16dp"
+        android:contentDescription="@string/eliminar_empleado"
+        app:srcCompat="@android:drawable/ic_delete"
+        app:tint="@android:color/white"
+        app:backgroundTint="@color/light_gray"/>
 
 </androidx.cardview.widget.CardView>
 ```
