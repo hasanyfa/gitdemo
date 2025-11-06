@@ -1,12 +1,8 @@
 # 📱 ACTIVIDAD 12 - 🔐 Autenticación Biométrica
 
-## 🎯 Objetivo
+## 🎯 Objetivos
 
 📚 En esta actividad deberás poner a prueba lo que aprendiste en el tema sensor.
-
-## ### 8. 🛍️ Especificaciones técnicas de la aplicación
-
-## 🎯 Objetivo
 
 🔐 Desarrollar una aplicación Android que permita al usuario autenticarse mediante su huella digital.
 
@@ -167,9 +163,6 @@ git checkout -b desarrollo
 ## 📱 Desarrollo de la aplicación
 
 ### 8. 🛍️ Especificaciones técnicas de la aplicación
-
-## Objetivo
-Desarrollar una aplicación Android que permita al usuario autenticarse mediante su huella digital.
 
 ## Interfaz
 
