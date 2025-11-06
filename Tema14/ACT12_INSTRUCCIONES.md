@@ -1,64 +1,10 @@
 # 📱 ACTIVIDAD 12 - 🔐 Autenticación Biométrica
 
-## 🚀## 📱 Desarrollo de la aplicación
-
-### 8. 🛍️ Especificaciones técnicas de la aplicación
-
 ## 🎯 Objetivo
 
-🔐 Desarrollar una aplicación Android que permita al usuario autenticarse mediante su huella digital.
+En esta actividad deberás poner a prueba lo que aprendiste en el tema sensor.
 
-## 🖥️ Interfaz
-
--  📱 La aplicación tendrá una interfaz sencilla e intuitiva.
--  🔘 Se utilizará un Button para que el usuario inicie el proceso de autenticación.
--  👆 Se utilizará un sensor de huella digital para capturar la huella del usuario.
--  💬 Se mostrará un mensaje al usuario indicando si la autenticación fue exitosa o no.
-
-## ⚙️ Funcionalidades
-
--  🔐 **Autenticación por huella digital**: la aplicación utilizará la API de Android para la autenticación por huella digital para capturar la huella del usuario y compararla con la huella almacenada en el dispositivo.
--  ✅ **Validación de huella**: la aplicación validará que la huella capturada sea válida y coincida con la huella del usuario.
--  💬 **Mensaje de éxito o error**: se mostrará un mensaje al usuario indicando si la autenticación fue exitosa o no.
-
----
-
-## 🚀 Pasos adicionales recomendados
-
-### 9. 🔒 Configuración de seguridad
-
--  🛡️ Implementar cifrado de datos sensibles
--  🔐 Configurar permisos de aplicación apropiados
--  🚫 Validación de dispositivos root/jailbreak
-
-### 10. 🧪 Testing y validación
-
--  ✅ Pruebas unitarias para lógica de autenticación
--  🔍 Pruebas de integración con sensores
--  📱 Pruebas en dispositivos reales
-
-### 11. 📊 Métricas y analytics
-
--  📈 Implementar seguimiento de eventos de autenticación
--  ⚡ Monitoreo de rendimiento de la aplicación
--  🐛 Sistema de reporte de errores
-
-### 12. 🎨 UI/UX mejorado
-
--  🌟 Animaciones fluidas para feedback visual
--  🎨 Diseño responsive para diferentes tamaños de pantalla
--  ♿ Accesibilidad para usuarios con discapacidades
-
-## 📋 Checklist final
-
--  [ ] 📁 Repositorio creado y configurado
--  [ ] 👥 Colaboradores agregados
--  [ ] 🎨 Diseño y estilos implementados
--  [ ] 🔄 Flujo de Git configurado
--  [ ] 📝 Documentación completa
--  [ ] 🔐 Funcionalidad de huella digital implementada
--  [ ] 🧪 Pruebas realizadas
--  [ ] 📱 Aplicación funcionando correctamenteial
+## 🚀 Configuración inicial
 
 ### 1. 📁 Creación del repositorio
 
